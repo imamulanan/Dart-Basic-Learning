@@ -1,0 +1,162 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.cyan,
+        useMaterial3: false,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: const HomeActivity(),
+    );
+  }
+}
+
+class HomeActivity extends StatelessWidget {
+  const HomeActivity({super.key});
+
+  // ✅ Snackbar Function
+  void MySnackBar(String message, BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message)),
+    );
+  }
+
+  // ✅ Alert Dialog Function
+  void MyAlertDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext ctx) {
+        return AlertDialog(
+          title: const Text("Alert!"),
+          content: const Text("Do you want to delete?"),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx),
+              child: const Text("Cancel"),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(ctx);
+                MySnackBar("Item Deleted", ctx);
+              },
+              child: const Text("Delete"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  // ✅ Button Style
+  ButtonStyle get buttonStyle => ElevatedButton.styleFrom(
+    padding: const EdgeInsets.all(20),
+    backgroundColor: Colors.greenAccent,
+    foregroundColor: Colors.black,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),
+    ),
+  );
+
+  // ✅ Drawer UI
+  Widget buildCustomDrawer(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        children: [
+          const UserAccountsDrawerHeader(
+            decoration: BoxDecoration(color: Colors.cyan),
+            accountName: Text("Imamul Anan"),
+            accountEmail: Text("anan.imamul@gmail.com"),
+            currentAccountPicture: CircleAvatar(
+              backgroundImage: NetworkImage(
+                'https://pngate.com/wp-content/uploads/2025/05/flutter-logo-blue-modern-flat-design-icon-1.png',
+              ),
+            ),
+          ),
+          _buildDrawerTile(context, Icons.home, "Home"),
+          _buildDrawerTile(context, Icons.contact_mail, "Contact"),
+          _buildDrawerTile(context, Icons.person, "Profile"),
+          _buildDrawerTile(context, Icons.email, "Email"),
+          _buildDrawerTile(context, Icons.phone, "Phone"),
+        ],
+      ),
+    );
+  }
+
+  // ✅ Reusable Drawer Tile
+  Widget _buildDrawerTile(BuildContext context, IconData icon, String title) {
+    return ListTile(
+      leading: Icon(icon, color: Colors.cyan),
+      title: Text(title),
+      onTap: () {
+        Navigator.pop(context);
+        MySnackBar(title, context);
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Inventory App"),
+        titleSpacing: 10,
+        toolbarHeight: 70,
+        elevation: 20,
+        backgroundColor: Colors.green,
+        actions: [
+          IconButton(
+            onPressed: () => MySnackBar("Call Me", context),
+            icon: const Icon(Icons.account_circle),
+          ),
+          IconButton(
+            onPressed: () => MySnackBar("Add box", context),
+            icon: const Icon(Icons.add_box_sharp),
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        elevation: 10,
+        backgroundColor: Colors.amber,
+        child: const Icon(Icons.add),
+        onPressed: () {
+          MySnackBar("I am floating action button", context);
+        },
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.contact_page_outlined), label: "Contact"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+        ],
+        onTap: (int index) {
+          if (index == 0) {
+            MySnackBar("I am home bottom menu", context);
+          } else if (index == 1) {
+            MySnackBar("I am contact bottom menu", context);
+          } else if (index == 2) {
+            MySnackBar("I am profile bottom menu", context);
+          }
+        },
+      ),
+      drawer: buildCustomDrawer(context),
+      endDrawer: buildCustomDrawer(context),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () => MyAlertDialog(context),
+          style: buttonStyle,
+          child: const Text("Elevated Button"),
+        ),
+      ),
+    );
+  }
+}
