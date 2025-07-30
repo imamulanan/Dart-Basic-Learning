@@ -1,0 +1,80 @@
+
+import 'package:flatter_work/Fragment/AlarmFragment.dart';
+import 'package:flatter_work/Fragment/BalanceFragment.dart';
+import 'package:flatter_work/Fragment/ContactFragment.dart';
+import 'package:flatter_work/Fragment/EmailFragment.dart';
+import 'package:flatter_work/Fragment/HomeFragment.dart';
+import 'package:flatter_work/Fragment/PersonFragment.dart';
+import 'package:flatter_work/Fragment/SearchFragment.dart';
+import 'package:flatter_work/Fragment/SettingsFragment.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.cyan,
+        useMaterial3: false,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: HomeActivity(),
+    );
+  }
+}
+
+class HomeActivity extends StatelessWidget {
+  HomeActivity({super.key});
+
+
+
+  void MySnackBar(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message)),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+        length: 8,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text("My App"),
+            bottom: TabBar(
+              isScrollable: true,
+              tabs: [
+                Tab(icon: Icon(Icons.home),text: 'Home',),
+                Tab(icon: Icon(Icons.search),text: 'Search',),
+                Tab(icon: Icon(Icons.settings),text: 'Settings',),
+                Tab(icon: Icon(Icons.email),text: 'Email',),
+                Tab(icon: Icon(Icons.contact_mail),text: 'Contact',),
+                Tab(icon: Icon(Icons.person),text: 'Person',),
+                Tab(icon: Icon(Icons.access_alarm),text: 'Alarm',),
+                Tab(icon: Icon(Icons.account_balance),text: 'Balance',)
+
+              ],
+            ),
+          ),
+          body: TabBarView(
+            children: [
+              Homefragment(),
+              Searchfragment(),
+              Settingsfragment(),
+              Emailfragment(),
+              Contactfragment(),
+              Personfragment(),
+              AlarmFragment(),
+              Balancefragment()
+            ],
+          ),
+        )
+    );
+  }
+}
