@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(primarySwatch: Colors.cyan, useMaterial3: false),
+      debugShowCheckedModeBanner: false,
+      home: HomeActivity(),
+    );
+  }
+}
+
+class HomeActivity extends StatelessWidget {
+  HomeActivity({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Home")),
+      body: Center(
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50),
+          ),
+          color: Color.fromRGBO(50, 168, 90, 0.7),
+          shadowColor: Color.fromRGBO(7, 227, 81, 0.7),
+          elevation: 80,
+          child: SizedBox(
+            height: 200,
+            width: 200,
+            child: Center(child: Text("This is card")),
+          ),
+        ),
+      ),
+    );
+  }
+}
