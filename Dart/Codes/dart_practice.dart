@@ -40,4 +40,8 @@ void main() {
   print(student);
   student["cgpa"] = 3.489;
   print(student);
+
+  student.forEach((key, values) {
+    print("${key} : ${values}");
+  });
 }
