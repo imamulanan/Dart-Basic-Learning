@@ -23,4 +23,6 @@ void main() {
 
   fruits.remove("Banana");
   print(fruits);
+
+  print(fruits.length);
 }
