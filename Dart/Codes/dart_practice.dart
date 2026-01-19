@@ -13,4 +13,8 @@ void main() {
   print("My age is $age");
 
   print(name + " is " + age.toString() + " years old.");
+
+  List<String> fruits = ["Apple", "Banana", "Cherry"];
+  print(fruits);
+  print(fruits[1]);
 }
