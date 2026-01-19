@@ -26,7 +26,18 @@ void main() {
 
   print(fruits.length);
 
-  for (var fruit in fruits){
+  for (var fruit in fruits) {
     print(fruit);
   }
+
+  Map<String, dynamic> student = {
+    "name": "Anan",
+    "age": 25,
+    "isStudent": true,
+    "dept": "CSE",
+  };
+
+  print(student);
+  student["cgpa"] = 3.489;
+  print(student);
 }
