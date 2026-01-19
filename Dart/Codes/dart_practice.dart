@@ -1,4 +1,4 @@
-void main(){
+void main() {
   print("Hello World");
   print(10);
   print(3.14);
@@ -10,7 +10,7 @@ void main(){
 
   int age = 25;
   print(age);
+  print("My age is $age");
 
   print(name + " is " + age.toString() + " years old.");
 }
-
