@@ -20,4 +20,7 @@ void main() {
 
   fruits.add("Orange");
   print(fruits);
+
+  fruits.remove("Banana");
+  print(fruits);
 }
