@@ -8,6 +8,9 @@ void main(){
   String name = "Anan";
   print(name);
 
-  
+  int age = 25;
+  print(age);
+
+  print(name + " is " + age.toString() + " years old.");
 }
 
