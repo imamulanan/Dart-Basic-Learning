@@ -17,4 +17,7 @@ void main() {
   List<String> fruits = ["Apple", "Banana", "Cherry"];
   print(fruits);
   print(fruits[1]);
+
+  fruits.add("Orange");
+  print(fruits);
 }
