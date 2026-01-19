@@ -25,4 +25,8 @@ void main() {
   print(fruits);
 
   print(fruits.length);
+
+  for (var fruit in fruits){
+    print(fruit);
+  }
 }
