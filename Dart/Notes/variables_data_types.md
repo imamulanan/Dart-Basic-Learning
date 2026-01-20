@@ -200,3 +200,263 @@ dynamic (যদি বাধ্য না হও)
 
 ---
 
+# 6️⃣ Basic Data Types (Dart)
+
+
+## 🔹 `int` (Integer)
+
+👉 **পূর্ণ সংখ্যা (Whole Number)**
+👉 দশমিক থাকে না
+
+```dart
+int age = 22;
+int year = 2026;
+```
+
+📌 Use case:
+
+* বয়স
+* আইডি
+* কাউন্টার, লুপ index
+
+---
+
+## 🔹 `double` (Decimal)
+
+👉 **ভগ্নাংশ / দশমিক সংখ্যা**
+
+```dart
+double cgpa = 3.75;
+double price = 99.99;
+```
+
+📌 Use case:
+
+* CGPA
+* Price
+* Measurement
+
+⚠️ Note:
+Dart-এ `int` + `double` = `double`
+
+---
+
+## 🔹 `String` (Text)
+
+👉 টেক্সট বা লেখা রাখার জন্য
+
+```dart
+String name = "Anan";
+String dept = 'CSE';
+```
+
+👉 Single (`' '`) বা Double (`" "`) quotes—দুটোই valid
+
+---
+
+### 🔹 String Interpolation (VERY IMPORTANT 🔥)
+
+```dart
+print("My name is $name");
+```
+
+👉 Variable সরাসরি string এর ভিতরে বসানো যায়
+
+Expression হলে:
+
+```dart
+print("Age next year: ${age + 1}");
+```
+
+📌 Flutter-এ UI text বানাতে এটা সবচেয়ে বেশি লাগে
+
+---
+
+## 🔹 `bool` (True / False)
+
+👉 Logical value
+
+```dart
+bool isStudent = true;
+bool isLoggedIn = false;
+```
+
+👉 Condition এ ব্যবহার হয়
+
+```dart
+if (isStudent) {
+  print("Access allowed");
+}
+```
+
+📌 Use case:
+
+* Login system
+* Permission
+* Toggle switch
+
+---
+
+# 7️⃣ List (Ordered Collection)
+
+
+## 🔹 List কী?
+
+👉 একাধিক data একসাথে রাখে
+👉 **Index থাকে (0 থেকে শুরু)**
+👉 Order maintain করে
+
+```dart
+List<String> fruits = ["Apple", "Banana", "Mango"];
+```
+
+### 🔹 Access element
+
+```dart
+print(fruits[0]); // Apple
+```
+
+⚠️ Index ভুল হলে → Runtime error
+
+---
+
+## 🔹 List Operations
+
+```dart
+fruits.add("Orange");        // Add
+fruits.remove("Banana");    // Remove
+print(fruits.length);       // Length
+```
+
+### 🔹 Loop through List
+
+```dart
+for (var fruit in fruits) {
+  print(fruit);
+}
+```
+
+📌 Flutter-এ:
+
+* ListView
+* Menu items
+* API data
+  সবই List দিয়ে হয়
+
+---
+
+# 8️⃣ Set (Unique Collection)
+
+---
+
+## 🔹 Set কী?
+
+- 👉 **Duplicate value নেয় না**
+- 👉 Order guarantee করে না
+- 👉 Fast lookup
+
+```dart
+Set<int> numbers = {1, 2, 3, 3};
+```
+
+👉 Output হবে:
+
+```
+1, 2, 3
+```
+
+### 🔹 Add value
+
+```dart
+numbers.add(4);
+```
+
+📌 Use case:
+
+* Unique skills
+* Unique IDs
+* Tags
+
+---
+
+# 9️⃣ Map (Key – Value Pair)
+
+## 🔹 Map কী?
+
+- 👉 Data থাকে **key → value** আকারে
+- 👉 Dictionary / JSON type structure
+
+```dart
+Map<String, dynamic> student = {
+  "name": "Anan",
+  "age": 22,
+  "dept": "CSE"
+};
+```
+
+### 🔹 Access value
+
+```dart
+print(student["name"]);
+```
+
+### 🔹 Add new data
+
+```dart
+student["cgpa"] = 3.75;
+```
+
+📌 Flutter-এ API response প্রায় সবসময় Map হয়
+
+---
+
+## 🔹 Loop Map
+
+```dart
+student.forEach((key, value) {
+  print("$key : $value");
+});
+```
+
+---
+
+# ❌ Common Beginner Mistakes (VERY IMPORTANT ⚠️)
+
+- ❌ `var` আর `dynamic` এক মনে করা
+- ❌ `const` দিয়ে runtime value রাখা
+- ❌ List index ভুল ধরা (`fruits[5]`)
+- ❌ Map key এর type mismatch
+- ❌ `null` handling না বোঝা
+
+---
+
+# ✅ Practice Task (MUST DO 💪)
+
+তোমার দেওয়া task **100% correct** ✔️
+আমি শুধু annotated করে দিচ্ছি:
+
+```dart
+void main() {
+  var name = "Arif";                // inferred as String
+  final university = "PSTU";        // runtime constant
+  const country = "Bangladesh";     // compile-time constant
+
+  int age = 22;
+  double cgpa = 3.75;
+  bool isStudent = true;
+
+  List<String> skills = ["Flutter", "Dart", "SQL"];
+
+  Map<String, dynamic> profile = {
+    "name": name,
+    "age": age,
+    "skills": skills
+  };
+
+  print(profile);
+}
+```
+
+📌 Output হবে Map format এ (JSON-like)
+
+---
