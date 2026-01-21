@@ -1,8 +1,7 @@
-void main(){
+void main() {
   var name = "Anan";
   final university = "PSTU";
   const country = "Bangladesh";
-
 
   int age = 25;
   double cgpa = 3.75;
@@ -17,4 +16,13 @@ void main(){
   };
 
   print(profile);
+
+  if (isStudent) {
+    print("$name is a student.");
+  } else {
+    print("$name is not a student.");
+  }
+  ;
+
+  
 }
