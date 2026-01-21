@@ -24,5 +24,14 @@ void main() {
   }
   ;
 
+  String password = "12345";
+
+  if(password == "12345"){
+    print("Login Successful");
+  } else {
+    print("Login Failed");
+  }
+
+
   
 }
