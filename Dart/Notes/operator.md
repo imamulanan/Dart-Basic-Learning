@@ -498,5 +498,241 @@ if (input == "flutter") {
 - ✔ Real-life examples
 
 ---
+---
+
+# 📌 Logical Operators (Dart) — Notes
+
+📌 **Logical Operators** ব্যবহার করা হয় একাধিক condition একসাথে handle করার জন্য।
+এগুলো না বুঝলে **login system, permission check, validation, decision making**—কিছুই ঠিকভাবে করা যায় না।
+
+---
+
+## 1️⃣ Logical Operator কী?
+
+👉 **Logical Operator** ব্যবহার হয়:
+
+* একাধিক condition **combine** করতে
+* condition **উল্টাতে** (true → false, false → true)
+
+📌 Logical operator সবসময় **bool value** নিয়ে কাজ করে
+➡️ Result ও হয় **bool (true / false)**
+
+---
+
+## 2️⃣ Logical Operators List
+
+| Operator | Name | Meaning                    |    |                            |
+| -------- | ---- | -------------------------- | -- | -------------------------- |
+| `&&`     | AND  | সব condition true হলে true |    |                            |
+| `        | OR | যেকোনো একটা true হলেই true |
+| `!`      | NOT  | condition উল্টে দেয়        |    |                            |
+
+---
+
+## 3️⃣ AND Operator (`&&`)
+
+### 🔹 Meaning
+
+👉 **সব condition true হতে হবে**
+
+```dart
+int age = 20;
+bool hasID = true;
+
+if (age >= 18 && hasID == true) {
+  print("Entry allowed");
+}
+```
+
+❌ যদি একটা condition false হয় → result false
+
+---
+
+### 🔹 Example (Login Check)
+
+```dart
+String email = "test@gmail.com";
+String password = "1234";
+
+if (email == "test@gmail.com" && password == "1234") {
+  print("Login success");
+}
+```
+
+📌 Login system-এ সবচেয়ে বেশি ব্যবহৃত operator
+
+---
+
+## 4️⃣ OR Operator (`||`)
+
+### 🔹 Meaning
+
+👉 **যেকোনো একটা condition true হলেই চলবে**
+
+```dart
+bool hasAdminRole = false;
+bool hasModeratorRole = true;
+
+if (hasAdminRole || hasModeratorRole) {
+  print("Access granted");
+}
+```
+
+---
+
+### 🔹 Example (Scholarship Eligibility)
+
+```dart
+double cgpa = 3.8;
+bool isPoor = false;
+
+if (cgpa >= 3.75 || isPoor == true) {
+  print("Eligible");
+}
+```
+
+📌 Alternative condition check করার জন্য `||` ব্যবহার হয়
+
+---
+
+## 5️⃣ NOT Operator (`!`)
+
+### 🔹 Meaning
+
+👉 Condition **উল্টে দেয়**
+
+```dart
+bool isLoggedIn = false;
+
+if (!isLoggedIn) {
+  print("Please login");
+}
+```
+
+---
+
+### 🔹 Example
+
+```dart
+bool isEmpty = false;
+
+if (!isEmpty) {
+  print("Data available");
+}
+```
+
+📌 Validation এ `!` খুব বেশি ব্যবহার হয়
+
+---
+
+## 6️⃣ Multiple Logical Operators একসাথে ব্যবহার
+
+```dart
+int age = 22;
+bool hasID = true;
+bool isBlacklisted = false;
+
+if (age >= 18 && hasID && !isBlacklisted) {
+  print("Allowed");
+}
+```
+
+🧠 **Real-life decision making** ঠিক এইভাবেই কাজ করে
+👉 একাধিক condition → final decision
+
+---
+
+## 7️⃣ Operator Precedence (IMPORTANT ⚠️)
+
+👉 Logical operators-এর priority order:
+
+- 1️⃣ `!`
+- 2️⃣ `&&`
+- 3️⃣ `||`
+
+### Example:
+
+```dart
+bool result = true || false && false;
+print(result); // true
+```
+
+- 👉 আগে `false && false` → false
+- 👉 তারপর `true || false` → true
+
+---
+
+### 🔹 With Brackets (Recommended)
+
+```dart
+bool result = (true || false) && false;
+print(result); // false
+```
+
+📌 Confusion হলে **সবসময় bracket ব্যবহার করো**
+
+---
+
+## 8️⃣ Common Beginner Mistakes ❌
+
+* `&` আর `&&` গুলিয়ে ফেলা
+* `|` আর `||` গুলিয়ে ফেলা
+* `!` ভুল জায়গায় ব্যবহার করা
+* Bracket না দেওয়া
+* Logical operator ছাড়া complex `if` লেখা
+
+---
+
+## 9️⃣ Practice Tasks
+
+### Task 1: Age & Student Check
+
+```dart
+int age = 19;
+bool isStudent = true;
+
+if (age >= 18 && isStudent) {
+  print("Discount available");
+}
+```
+
+---
+
+### Task 2: Login Status
+
+```dart
+bool isLoggedIn = false;
+
+if (!isLoggedIn) {
+  print("Please login first");
+}
+```
+
+---
+
+### Task 3: Scholarship Eligibility
+
+```dart
+double cgpa = 3.6;
+bool hasQuota = true;
+
+if (cgpa >= 3.75 || hasQuota) {
+  print("Eligible");
+} else {
+  print("Not eligible");
+}
+```
+
+---
+
+## 🔚 Summary
+
+- ✔ AND (`&&`)
+- ✔ OR (`||`)
+- ✔ NOT (`!`)
+- ✔ Multiple condition handling
+- ✔ Operator precedence
+
+---
 
 
