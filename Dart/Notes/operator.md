@@ -245,3 +245,258 @@ if (number % 2 == 0) {
 - ✔ Increment & decrement
 
 ---
+---
+
+# 📌 Relational Operators (Dart) — Notes
+
+📌 **Relational Operators** কে comparison operators ও বলা হয়।
+এগুলো ব্যবহার করে আমরা দুইটা value **compare** করি।
+এই operators না বুঝলে **if–else, loop, login check**—কিছুই ঠিকভাবে করা যায় না।
+
+---
+
+## 1️⃣ Relational Operator কী?
+
+👉 **Relational Operator** দুইটা value compare করে
+এবং result হিসেবে **true** বা **false** দেয়।
+
+🧠 সহজ ভাষায়:
+
+* এই দুইটা কি সমান?
+* একটা কি আরেকটার থেকে বড়?
+* একটা কি ছোট?
+
+📌 Result সবসময় **bool** হয়।
+
+---
+
+## 2️⃣ Relational Operators List
+
+| Operator | Meaning               | Example  |
+| -------- | --------------------- | -------- |
+| `==`     | Equal to              | `a == b` |
+| `!=`     | Not equal             | `a != b` |
+| `>`      | Greater than          | `a > b`  |
+| `<`      | Less than             | `a < b`  |
+| `>=`     | Greater than or equal | `a >= b` |
+| `<=`     | Less than or equal    | `a <= b` |
+
+---
+
+## 3️⃣ Operators with Examples
+
+### 🔹 Equal to (`==`)
+
+```dart
+int a = 10;
+int b = 10;
+
+print(a == b); // true
+```
+
+⚠️ **Common Mistake**
+
+```dart
+a = b; // ❌ assignment, comparison না
+```
+
+---
+
+### 🔹 Not Equal (`!=`)
+
+```dart
+print(a != b); // false
+```
+
+---
+
+### 🔹 Greater Than (`>`)
+
+```dart
+int age = 20;
+print(age > 18); // true
+```
+
+---
+
+### 🔹 Less Than (`<`)
+
+```dart
+print(age < 18); // false
+```
+
+---
+
+### 🔹 Greater Than or Equal (`>=`)
+
+```dart
+print(age >= 18); // true
+```
+
+---
+
+### 🔹 Less Than or Equal (`<=`)
+
+```dart
+print(age <= 18); // false
+```
+
+---
+
+## 4️⃣ Relational Operators with if–else
+
+```dart
+int marks = 75;
+
+if (marks >= 40) {
+  print("Passed");
+} else {
+  print("Failed");
+}
+```
+
+📌 Relational operator ছাড়া `if` কাজ করে না।
+
+---
+
+## 5️⃣ Relational Operator with bool
+
+```dart
+bool isLoggedIn = true;
+
+if (isLoggedIn == true) {
+  print("Welcome");
+}
+```
+
+### ✅ Better Way
+
+```dart
+if (isLoggedIn) {
+  print("Welcome");
+}
+```
+
+👉 Cleaner এবং professional code।
+
+---
+
+## 6️⃣ Relational Operator with String
+
+```dart
+String password = "1234";
+
+if (password == "1234") {
+  print("Access granted");
+} else {
+  print("Wrong password");
+}
+```
+
+⚠️ **Note:**
+String comparison **case-sensitive**।
+
+---
+
+## 7️⃣ Real-Life Use Cases
+
+### ✔ Age Verification
+
+```dart
+int age = 17;
+
+if (age < 18) {
+  print("Not allowed");
+}
+```
+
+---
+
+### ✔ Login Check
+
+```dart
+String email = "test@gmail.com";
+
+if (email != "") {
+  print("Email entered");
+}
+```
+
+---
+
+### ✔ Exam Result
+
+```dart
+int score = 85;
+
+if (score >= 80) {
+  print("A+");
+}
+```
+
+---
+
+## 8️⃣ Common Beginner Mistakes ❌
+
+* `=` আর `==` গুলিয়ে ফেলা
+* Number এর সাথে String compare করা
+* Relational operator ছাড়া `if` লেখা
+* Result যে `bool` হয় সেটা না বোঝা
+
+---
+
+## 9️⃣ Practice Tasks
+
+### Task 1: Age Check
+
+```dart
+int age = 21;
+
+if (age >= 18) {
+  print("Adult");
+} else {
+  print("Minor");
+}
+```
+
+---
+
+### Task 2: Largest Number
+
+```dart
+int a = 10;
+int b = 20;
+
+if (a > b) {
+  print("a is larger");
+} else {
+  print("b is larger");
+}
+```
+
+---
+
+### Task 3: Password Match
+
+```dart
+String input = "flutter";
+
+if (input == "flutter") {
+  print("Correct");
+} else {
+  print("Incorrect");
+}
+```
+
+---
+
+## 🔚 Summary
+
+- ✔ Relational operator কী
+- ✔ সব comparison operators
+- ✔ if–else এর সাথে ব্যবহার
+- ✔ Real-life examples
+
+---
+
+
