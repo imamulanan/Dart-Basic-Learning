@@ -223,3 +223,220 @@ if (number % 2 == 0) {
 - ✔ Logical operator integration
 
 ---
+
+
+## 📌 switch-case Statements (Dart) — Complete Guide
+
+---
+
+### 1️⃣ switch-case কী?
+
+`switch-case` হলো **decision-making structure**, যেখানে একটি variable বা expression check করা হয় **multiple possible values** এর সাথে।
+
+🧠 সহজভাবে:
+
+> “একটা value আছে, তার জন্য বিভিন্ন action বানাও”
+
+---
+
+### 2️⃣ switch-case syntax
+
+```dart
+switch(expression) {
+  case value1:
+    // code
+    break;
+  case value2:
+    // code
+    break;
+  default:
+    // code if no case matches
+}
+```
+
+**Important Notes:**
+
+1. `expression` → int, String (Dart supports both)
+2. `break` → প্রতিটি case শেষ করার জন্য
+3. `default` → সব case না মিললে execute হয়
+
+---
+
+### 3️⃣ Example 1: Day of Week
+
+```dart
+int day = 3;
+
+switch(day) {
+  case 1:
+    print("Monday");
+    break;
+  case 2:
+    print("Tuesday");
+    break;
+  case 3:
+    print("Wednesday");
+    break;
+  case 4:
+    print("Thursday");
+    break;
+  case 5:
+    print("Friday");
+    break;
+  case 6:
+    print("Saturday");
+    break;
+  case 7:
+    print("Sunday");
+    break;
+  default:
+    print("Invalid day");
+}
+```
+
+✅ Output: Wednesday
+
+---
+
+### 4️⃣ Example 2: Simple Menu
+
+```dart
+String option = "B";
+
+switch(option) {
+  case "A":
+    print("Add item");
+    break;
+  case "B":
+    print("Delete item");
+    break;
+  case "C":
+    print("Update item");
+    break;
+  default:
+    print("Invalid option");
+}
+```
+
+✅ Output: Delete item
+
+---
+
+### 5️⃣ Multiple Case in One (Grouped Case)
+
+```dart
+int score = 85;
+
+switch(score ~/ 10) {
+  case 10:
+  case 9:
+    print("A+");
+    break;
+  case 8:
+    print("A");
+    break;
+  case 7:
+    print("B");
+    break;
+  default:
+    print("C or below");
+}
+```
+
+🧠 এখানে:
+`score ~/10 → 85 ~/ 10 = 8 → Case 8 → Output: A`
+
+---
+
+### 6️⃣ Difference with if–else
+
+| if–else                      | switch-case                        |
+| ---------------------------- | ---------------------------------- |
+| Can handle any condition     | Best for discrete values           |
+| Can use relational operators | Only exact match                   |
+| Flexible                     | More readable for multiple options |
+
+---
+
+### 7️⃣ Real-life Examples
+
+**Grade Checker**
+
+```dart
+String grade = "B";
+
+switch(grade) {
+  case "A":
+    print("Excellent");
+    break;
+  case "B":
+    print("Good");
+    break;
+  case "C":
+    print("Average");
+    break;
+  default:
+    print("Fail");
+}
+```
+
+**Traffic Signal**
+
+```dart
+String signal = "Red";
+
+switch(signal) {
+  case "Red":
+    print("Stop");
+    break;
+  case "Yellow":
+    print("Get Ready");
+    break;
+  case "Green":
+    print("Go");
+    break;
+  default:
+    print("Invalid signal");
+}
+```
+
+---
+
+### 8️⃣ Common Beginner Mistakes ❌
+
+* `break` না দেওয়া → next case execute হয়ে যায়
+* `default` না দেওয়া → unmatched value problem
+* expression type incompatible with case
+* duplicate case values
+
+---
+
+### 9️⃣ Practice Tasks (MUST DO)
+
+**Task 1: Day Name**
+
+```dart
+int day = 6;
+
+// Write switch-case to print day name
+```
+
+**Task 2: Menu Options**
+
+```dart
+String menu = "C";
+
+// Write switch-case to perform menu actions
+```
+
+**Task 3: Grade Display**
+
+```dart
+String grade = "A";
+
+// Write switch-case to print grade message
+```
+
+---
+
+
