@@ -734,5 +734,122 @@ if (cgpa >= 3.75 || hasQuota) {
 - ✔ Operator precedence
 
 ---
+---
+
+## 📌 Assignment Operators — Summary (Deep Level)
+
+### 1️⃣ Basic Assignment `=`
+
+👉 Variable কে value assign করার সবচেয়ে simple way
+
+```dart
+int a = 10;       // a এখন 10
+String name = "Arif"; // name এখন "Arif"
+```
+
+---
+
+### 2️⃣ Shorthand / Combined Assignment Operators
+
+| Operator | Meaning                 | Equivalent Example          |
+| -------- | ----------------------- | --------------------------- |
+| `+=`     | Add & Assign            | x += 3 → x = x + 3          |
+| `-=`     | Subtract & Assign       | x -= 2 → x = x - 2          |
+| `*=`     | Multiply & Assign       | x *= 2 → x = x * 2          |
+| `/=`     | Divide & Assign         | x /= 3 → x = x / 3 (double) |
+| `~/=`    | Integer Divide & Assign | x ~/= 2 → x = x ~/ 2        |
+| `%=`     | Modulus & Assign        | x %= 2 → x = x % 2          |
+
+---
+
+### 3️⃣ Example: Step by Step
+
+```dart
+int x = 5;
+
+x += 3;  // 5 + 3 = 8
+x -= 2;  // 8 - 2 = 6
+x *= 2;  // 6 * 2 = 12
+x /= 3;  // 12 / 3 = 4.0 (double)
+x ~/= 2; // 4 ~/ 2 = 2
+x %= 2;  // 2 % 2 = 0
+
+print(x); // 0
+```
+
+✅ দেখো, এক লাইনে shorthand লিখে clean ও readable code হয়
+
+---
+
+### 4️⃣ Real-life Example (Bank / Finance)
+
+```dart
+int bankBalance = 5000;
+
+// Deposit
+bankBalance += 2000; // 7000
+
+// Withdraw
+bankBalance -= 1500; // 5500
+
+// Interest 10%
+bankBalance *= 1.1.toInt(); // 6050
+```
+
+💡 Finance apps, games, score updates, inventory management—সব জায়গায় ব্যবহার হয়
+
+---
+
+### 5️⃣ Common Mistakes ❌
+
+* `=` আর `==` confuse করা
+* Shorthand ভুলভাবে ব্যবহার করা
+* `/=` করলে int + double mix হলে unexpected result
+
+---
+
+### 6️⃣ Practice Tasks
+
+**Task 1: Simple Calculation**
+
+```dart
+int x = 10;
+x += 5;  // 15
+x -= 3;  // 12
+x *= 2;  // 24
+x ~/= 4; // 6
+x %= 5;  // 1
+print(x); // 1
+```
+
+**Task 2: Bank Balance**
+
+```dart
+int balance = 1000;
+balance += 500;  // deposit → 1500
+balance -= 200;  // withdraw → 1300
+balance *= 2;    // double balance → 2600
+print(balance);
+```
+
+**Task 3: Score Update**
+
+```dart
+int score = 50;
+score += 10; // after round 1 → 60
+score += 20; // after round 2 → 80
+print(score); // 80
+```
+
+---
+
+### 7️⃣ Key Points
+
+* `=` → Assign
+* `+=, -=, *=, /=, ~/=, %=` → Update shorthand
+* Clean & readable code
+* Used everywhere: **score, balance, inventory, counters**
+
+---
 
 
