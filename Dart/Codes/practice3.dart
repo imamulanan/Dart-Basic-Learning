@@ -14,7 +14,13 @@ void greet2([String? name]){
 }
 
 
-
+bool checkLogin(String email, String password){
+  if(email == "anan@gmail.com" && password == "12345"){
+    return true;
+  } else {
+    return false;
+  }
+}
 
 void main() {
   greet(); // call function
@@ -26,6 +32,8 @@ void main() {
 
   greet2();
   greet2("Anan");
+
+  print(checkLogin("anan@gmail.com", "12345"));
 }
 
   
