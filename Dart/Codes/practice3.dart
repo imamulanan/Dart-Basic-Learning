@@ -34,6 +34,35 @@ Future<int> addAsync(int a, int b) async {
   return a + b;
 }
 
+Future<String> task1() async {
+  await Future.delayed(Duration(seconds: 2));
+  return "Task 1 completed";
+}
+
+Future<String> task2() async {
+  await Future.delayed(Duration(seconds: 1));
+  return "Task 2 completed";
+}
+
+
+Future<String> getUserData() async {
+  await Future.delayed( Duration(seconds: 2));
+  return "User: Arif, Age: 20";
+}
+
+
+// parallel Future Execution
+
+Future<String> fetchUser() async {
+  await Future.delayed(Duration(seconds: 2));
+  return "User data fetched";
+}
+
+Future<String> fetchPosts() async {
+  await Future.delayed(Duration(seconds: 3));
+  return "Posts data fetched";
+}
+
 void main() async {
   greet(); // call function
 
@@ -56,6 +85,28 @@ void main() async {
 
   int result = await addAsync(5, 10);
   print("Result: $result");
-}
 
+
+  String t1 = await task1();
+  print(t1);
+
+  String t2 = await task2();
+  print(t2);
+
+
+  print("Fetching user data...");
+  String userData = await getUserData();
+  print(userData);
+  
+
+
+  // parallel Future Execution
+  print("Fetching user and posts data...");
+
+  List<String> results = await Future.wait([fetchUser(), fetchPosts()]);
+
+  for (var res in results) {
+    print(res);
+  }
+}  
   
