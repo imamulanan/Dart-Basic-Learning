@@ -108,5 +108,17 @@ void main() async {
   for (var res in results) {
     print(res);
   }
+
+
+  print("Flutter".startsWith("Fl"));
+
+
+  String email = "anan@gmial.com";
+
+  if (email.contains("@") && email.endsWith(".com")){
+    print("Valid email");
+  } else {
+    print("Invalid email");
+  }
 }  
   
